@@ -401,6 +401,7 @@ footer {
 .language-switcher { position: relative; }
 .language-button {
   display: inline-flex; align-items: center; gap: 0.35rem;
+  min-width: 145px; justify-content: center;
   padding: 0.42rem 0.85rem; border-radius: 6px;
   font-size: 0.78rem; font-weight: 600;
   color: var(--text); border: 1px solid var(--border2);
@@ -409,7 +410,7 @@ footer {
 .language-button:hover { border-color: var(--accent); transform: translateY(-1px); }
 .language-menu {
   position: absolute; top: calc(100% + 0.5rem); right: 0;
-  min-width: 150px; padding: 0.35rem; border-radius: 8px;
+  min-width: 180px; padding: 0.35rem; border-radius: 8px;
   background: rgba(15,15,26,0.98); border: 1px solid var(--border2);
   box-shadow: 0 16px 40px rgba(0,0,0,0.35);
   display: none; z-index: 120;
@@ -424,10 +425,10 @@ footer {
   background: rgba(99,102,241,0.12); color: var(--accent2);
 }
 .mobile-language-row {
-  display: none; grid-template-columns: repeat(4, 1fr); gap: 0.4rem;
+  display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem;
   padding-top: 0.35rem;
 }
-.mobile-language-row button { text-align: center; border: 1px solid var(--border); background: var(--card); }
+.mobile-language-row button { text-align: center; border: 1px solid var(--border); background: var(--card); padding: 0.55rem 0.65rem; }
 
 /* =============================================================
    14. Responsive
@@ -463,7 +464,7 @@ footer {
   <div class="nav-actions">
     <div class="language-switcher" data-no-translate>
       <button type="button" class="language-button" id="language-button" aria-expanded="false" aria-controls="language-menu">
-        <span data-lang-label>Idioma</span>: <span data-lang-current>ES</span>
+        <span data-lang-label>Idioma</span>: <span data-lang-current>Español</span>
       </button>
       <div class="language-menu" id="language-menu" role="menu" aria-label="Seleccionar idioma">
         <button type="button" data-lang-option="es" role="menuitem">Español</button>
@@ -486,10 +487,10 @@ footer {
   <a href="#education" class="mobile-link">Formación</a>
   <a href="#contact" class="mobile-link">Contacto</a>
   <div class="mobile-language-row" data-no-translate aria-label="Seleccionar idioma">
-    <button type="button" data-lang-option="es">ES</button>
-    <button type="button" data-lang-option="en">EN</button>
-    <button type="button" data-lang-option="fr">FR</button>
-    <button type="button" data-lang-option="pt">PT</button>
+    <button type="button" data-lang-option="es">Español</button>
+    <button type="button" data-lang-option="en">English</button>
+    <button type="button" data-lang-option="fr">Français</button>
+    <button type="button" data-lang-option="pt">Português</button>
   </div>
 </div>
 
@@ -1002,94 +1003,94 @@ footer {
   function initTranslations() {
     var supported = ["es", "en", "fr", "pt"];
     var labels = {
-      es: { code: "ES", label: "Idioma" },
-      en: { code: "EN", label: "Language" },
-      fr: { code: "FR", label: "Langue" },
-      pt: { code: "PT", label: "Idioma" }
+      es: { code: "ES", name: "Español", label: "Idioma" },
+      en: { code: "EN", name: "English", label: "Language" },
+      fr: { code: "FR", name: "Français", label: "Langue" },
+      pt: { code: "PT", name: "Português", label: "Idioma" }
     };
 
     var metaDescriptions = {
       es: "Portfolio de Diego, estudiante de SMR y Junior Prompt Engineer con experiencia en bots de Discord, automatización y desarrollo web. Madrid, España.",
-      en: "Diego's portfolio, an SMR student and Junior Prompt Engineer with experience in Discord bots, automation and web development. Madrid, Spain.",
-      fr: "Portfolio de Diego, étudiant en SMR et Junior Prompt Engineer avec de l'expérience en bots Discord, automatisation et développement web. Madrid, Espagne.",
-      pt: "Portfolio de Diego, estudante de SMR e Junior Prompt Engineer com experiência em bots de Discord, automação e desenvolvimento web. Madrid, Espanha."
+      en: "Diego's portfolio: IT Systems and Networks student and Junior Prompt Engineer with experience in Discord bots, automation, and web development. Based in Madrid, Spain.",
+      fr: "Portfolio de Diego, étudiant en systèmes et réseaux informatiques et Junior Prompt Engineer, avec expérience en bots Discord, automatisation et développement web. Madrid, Espagne.",
+      pt: "Portefólio de Diego, estudante de Sistemas Informáticos e Redes e Junior Prompt Engineer, com experiência em bots de Discord, automação e desenvolvimento web. Madrid, Espanha."
     };
 
     var pageTitles = {
       es: "Diego — Técnico SMR y Junior Prompt Engineer",
-      en: "Diego — SMR Technician and Junior Prompt Engineer",
-      fr: "Diego — Technicien SMR et Junior Prompt Engineer",
-      pt: "Diego — Técnico SMR e Junior Prompt Engineer"
+      en: "Diego — IT Systems and Networks Technician and Junior Prompt Engineer",
+      fr: "Diego — Technicien systèmes et réseaux informatiques et Junior Prompt Engineer",
+      pt: "Diego — Técnico de Sistemas Informáticos e Redes e Junior Prompt Engineer"
     };
 
     var translations = {
-      "Sobre mí": { en: "About me", fr: "À propos", pt: "Sobre mim" },
+      "Sobre mí": { en: "About", fr: "À propos", pt: "Sobre mim" },
       "Habilidades": { en: "Skills", fr: "Compétences", pt: "Competências" },
       "Proyectos": { en: "Projects", fr: "Projets", pt: "Projetos" },
       "Formación": { en: "Education", fr: "Formation", pt: "Formação" },
       "Contacto": { en: "Contact", fr: "Contact", pt: "Contacto" },
       "Madrid, España": { en: "Madrid, Spain", fr: "Madrid, Espagne", pt: "Madrid, Espanha" },
-      "Técnico SMR y Junior Prompt Engineer.": { en: "SMR Technician and Junior Prompt Engineer.", fr: "Technicien SMR et Junior Prompt Engineer.", pt: "Técnico SMR e Junior Prompt Engineer." },
-      "Creación y rediseño web, desarrollo de bots para Discord y soluciones de automatización con IA.": { en: "Web creation and redesign, Discord bot development and AI automation solutions.", fr: "Création et refonte web, développement de bots Discord et solutions d'automatisation avec IA.", pt: "Criação e redesign web, desenvolvimento de bots para Discord e soluções de automação com IA." },
+      "Técnico SMR y Junior Prompt Engineer.": { en: "IT Systems and Networks Technician and Junior Prompt Engineer.", fr: "Technicien systèmes et réseaux informatiques et Junior Prompt Engineer.", pt: "Técnico de Sistemas Informáticos e Redes e Junior Prompt Engineer." },
+      "Creación y rediseño web, desarrollo de bots para Discord y soluciones de automatización con IA.": { en: "Website creation and redesign, Discord bot development, and AI-powered automation solutions.", fr: "Création et refonte de sites web, développement de bots Discord et solutions d'automatisation basées sur l'IA.", pt: "Criação e redesenho de websites, desenvolvimento de bots para Discord e soluções de automação com IA." },
       "Ver proyectos": { en: "View projects", fr: "Voir les projets", pt: "Ver projetos" },
-      "Técnico SMR & Junior Prompt Engineer": { en: "SMR Technician & Junior Prompt Engineer", fr: "Technicien SMR & Junior Prompt Engineer", pt: "Técnico SMR & Junior Prompt Engineer" },
-      "Estudiante de": { en: "Student in", fr: "Étudiant en", pt: "Estudante de" },
-      "segundo año de SMR (Sistemas Microinformáticos y Redes)": { en: "second year of SMR (Microcomputer Systems and Networks)", fr: "deuxième année de SMR (Systèmes Microinformatiques et Réseaux)", pt: "segundo ano de SMR (Sistemas Microinformáticos e Redes)" },
-      "en Madrid. Combino mi formación técnica en redes y sistemas con el desarrollo de bots de Discord y aplicaciones web.": { en: "in Madrid. I combine my technical training in networks and systems with Discord bot and web application development.", fr: "à Madrid. Je combine ma formation technique en réseaux et systèmes avec le développement de bots Discord et d'applications web.", pt: "em Madrid. Combino a minha formação técnica em redes e sistemas com o desenvolvimento de bots de Discord e aplicações web." },
-      "Tengo experiencia como": { en: "I have experience as a", fr: "J'ai de l'expérience comme", pt: "Tenho experiência como" },
-      ", desarrollando soluciones con IA y optimizando flujos de trabajo mediante prompting avanzado.": { en: ", developing AI solutions and optimizing workflows through advanced prompting.", fr: ", en développant des solutions avec IA et en optimisant des flux de travail grâce au prompting avancé.", pt: ", desenvolvendo soluções com IA e otimizando fluxos de trabalho através de prompting avançado." },
-      "Técnico IT": { en: "IT Technician", fr: "Technicien IT", pt: "Técnico de IT" },
+      "Técnico SMR & Junior Prompt Engineer": { en: "IT Systems & Networks Technician & Junior Prompt Engineer", fr: "Technicien systèmes et réseaux informatiques & Junior Prompt Engineer", pt: "Técnico de Sistemas Informáticos e Redes & Junior Prompt Engineer" },
+      "Estudiante de": { en: "Second-year student in", fr: "Étudiant en deuxième année de", pt: "Estudante do segundo ano de" },
+      "segundo año de SMR (Sistemas Microinformáticos y Redes)": { en: "Microcomputer Systems and Networks (SMR)", fr: "Systèmes microinformatiques et réseaux (SMR)", pt: "Sistemas Microinformáticos e Redes (SMR)" },
+      "en Madrid. Combino mi formación técnica en redes y sistemas con el desarrollo de bots de Discord y aplicaciones web.": { en: "in Madrid. I combine technical training in networks and systems with Discord bot and web application development.", fr: "à Madrid. Je combine une formation technique en réseaux et systèmes avec le développement de bots Discord et d'applications web.", pt: "em Madrid. Combino formação técnica em redes e sistemas com desenvolvimento de bots para Discord e aplicações web." },
+      "Tengo experiencia como": { en: "I have experience as a", fr: "J'ai de l'expérience en tant que", pt: "Tenho experiência como" },
+      ", desarrollando soluciones con IA y optimizando flujos de trabajo mediante prompting avanzado.": { en: ", developing AI-based solutions and optimizing workflows through advanced prompting.", fr: ", en développant des solutions basées sur l'IA et en optimisant des flux de travail grâce au prompting avancé.", pt: ", desenvolvendo soluções com IA e otimizando fluxos de trabalho através de prompting avançado." },
+      "Técnico IT": { en: "IT Technician", fr: "Technicien informatique", pt: "Técnico de TI" },
       "Autodidacta": { en: "Self-taught", fr: "Autodidacte", pt: "Autodidata" },
-      "Datos rápidos": { en: "Quick facts", fr: "Infos rapides", pt: "Dados rápidos" },
-      "CFGM Sistemas Microinformáticos y Redes": { en: "Intermediate Vocational Training in Microcomputer Systems and Networks", fr: "Cycle de formation en Systèmes Microinformatiques et Réseaux", pt: "Curso técnico em Sistemas Microinformáticos e Redes" },
-      "FP Lumara — 2025 – Actualidad": { en: "FP Lumara — 2025 – Present", fr: "FP Lumara — 2025 – Aujourd'hui", pt: "FP Lumara — 2025 – Atualidade" },
-      "Desarrollo de Bots de Discord": { en: "Discord Bot Development", fr: "Développement de bots Discord", pt: "Desenvolvimento de bots de Discord" },
+      "Datos rápidos": { en: "Key facts", fr: "Points clés", pt: "Dados principais" },
+      "CFGM Sistemas Microinformáticos y Redes": { en: "Vocational Training in Microcomputer Systems and Networks", fr: "Formation professionnelle en systèmes microinformatiques et réseaux", pt: "Formação profissional em Sistemas Microinformáticos e Redes" },
+      "FP Lumara — 2025 – Actualidad": { en: "FP Lumara — 2025 – Present", fr: "FP Lumara — 2025 – Aujourd'hui", pt: "FP Lumara — 2025 – Presente" },
+      "Desarrollo de Bots de Discord": { en: "Discord Bot Development", fr: "Développement de bots Discord", pt: "Desenvolvimento de bots para Discord" },
       "Desarrollo Web Freelance": { en: "Freelance Web Development", fr: "Développement web freelance", pt: "Desenvolvimento web freelance" },
-      "Sitios estáticos para negocios locales en Madrid": { en: "Static websites for local businesses in Madrid", fr: "Sites statiques pour entreprises locales à Madrid", pt: "Sites estáticos para negócios locais em Madrid" },
-      "Optimización de flujos con IA y prompting avanzado": { en: "Workflow optimization with AI and advanced prompting", fr: "Optimisation de flux avec IA et prompting avancé", pt: "Otimização de fluxos com IA e prompting avançado" },
+      "Sitios estáticos para negocios locales en Madrid": { en: "Static websites for local businesses in Madrid", fr: "Sites web statiques pour entreprises locales à Madrid", pt: "Websites estáticos para negócios locais em Madrid" },
+      "Optimización de flujos con IA y prompting avanzado": { en: "AI workflow optimization and advanced prompting", fr: "Optimisation de flux avec IA et prompting avancé", pt: "Otimização de fluxos com IA e prompting avançado" },
       "Idiomas": { en: "Languages", fr: "Langues", pt: "Idiomas" },
-      "Español (nativo) — Inglés (intermedio-avanzado)": { en: "Spanish (native) — English (upper-intermediate)", fr: "Espagnol (natif) — Anglais (intermédiaire-avancé)", pt: "Espanhol (nativo) — Inglês (intermédio-avançado)" },
+      "Español (nativo) — Inglés (intermedio-avanzado)": { en: "Spanish (native) — English (upper-intermediate)", fr: "Espagnol (natif) — Anglais (intermédiaire avancé)", pt: "Espanhol (nativo) — Inglês (intermédio-avançado)" },
       "Stack Técnico": { en: "Technical Stack", fr: "Stack technique", pt: "Stack técnico" },
-      "Tecnologías con las que trabajo y herramientas con las que construyo proyectos reales.": { en: "Technologies I work with and tools I use to build real projects.", fr: "Technologies avec lesquelles je travaille et outils que j'utilise pour créer des projets réels.", pt: "Tecnologias com que trabalho e ferramentas com que construo projetos reais." },
-      "Lenguajes": { en: "Languages", fr: "Langages", pt: "Linguagens" },
+      "Tecnologías con las que trabajo y herramientas con las que construyo proyectos reales.": { en: "Technologies and tools I use to build real-world projects.", fr: "Technologies et outils que j'utilise pour créer des projets concrets.", pt: "Tecnologias e ferramentas que utilizo para construir projetos reais." },
+      "Lenguajes": { en: "Programming Languages", fr: "Langages de programmation", pt: "Linguagens de programação" },
       "Diseño Web": { en: "Web Design", fr: "Design web", pt: "Design web" },
       "Bots y Automatización": { en: "Bots and Automation", fr: "Bots et automatisation", pt: "Bots e automação" },
-      "Automatización de tareas": { en: "Task automation", fr: "Automatisation de tâches", pt: "Automação de tarefas" },
+      "Automatización de tareas": { en: "Task automation", fr: "Automatisation des tâches", pt: "Automação de tarefas" },
       "Redes y Cisco": { en: "Networking and Cisco", fr: "Réseaux et Cisco", pt: "Redes e Cisco" },
-      "Sistemas y SO": { en: "Systems and OS", fr: "Systèmes et OS", pt: "Sistemas e SO" },
+      "Sistemas y SO": { en: "Systems and Operating Systems", fr: "Systèmes et OS", pt: "Sistemas e SO" },
       "File Permissions": { en: "File Permissions", fr: "Permissions de fichiers", pt: "Permissões de ficheiros" },
       "User Management": { en: "User Management", fr: "Gestion des utilisateurs", pt: "Gestão de utilizadores" },
       "Herramientas": { en: "Tools", fr: "Outils", pt: "Ferramentas" },
-      "Paquete Office": { en: "Office suite", fr: "Suite Office", pt: "Pacote Office" },
-      "Trabajo": { en: "Work", fr: "Travail", pt: "Trabalho" },
-      "Proyectos reales construidos y publicados — bots, apps y webs.": { en: "Real projects built and published — bots, apps and websites.", fr: "Projets réels développés et publiés — bots, apps et sites web.", pt: "Projetos reais construídos e publicados — bots, apps e sites." },
-      "Bot de Discord completo para un servidor temático de Minecraft. Incluye integración con IA, moderación avanzada, sistema de tickets, anti-abuso, gestión de roles y proceso watchdog para uptime 24/7. Vendido comercialmente a varios propietarios de servidores.": { en: "Complete Discord bot for a Minecraft-themed server. It includes AI integration, advanced moderation, ticket system, anti-abuse protection, role management and a watchdog process for 24/7 uptime. Commercially sold to several server owners.", fr: "Bot Discord complet pour un serveur sur le thème de Minecraft. Il inclut l'intégration avec IA, la modération avancée, un système de tickets, une protection anti-abus, la gestion des rôles et un processus watchdog pour une disponibilité 24/7. Vendu commercialement à plusieurs propriétaires de serveurs.", pt: "Bot de Discord completo para um servidor temático de Minecraft. Inclui integração com IA, moderação avançada, sistema de tickets, anti-abuso, gestão de cargos e processo watchdog para uptime 24/7. Vendido comercialmente a vários proprietários de servidores." },
-      "App de seguimiento nutricional en español. Incluye cálculo de BMR/TDEE, análisis de comidas con IA, seguimiento de macros en tiempo real con gráficas y exportación/importación de datos para portabilidad entre dispositivos.": { en: "Nutrition tracking app in Spanish. It includes BMR/TDEE calculation, AI meal analysis, real-time macro tracking with charts and data export/import for portability between devices.", fr: "Application de suivi nutritionnel en espagnol. Elle inclut le calcul BMR/TDEE, l'analyse de repas avec IA, le suivi des macros en temps réel avec graphiques et l'export/import des données pour la portabilité entre appareils.", pt: "Aplicação de acompanhamento nutricional em espanhol. Inclui cálculo de BMR/TDEE, análise de refeições com IA, acompanhamento de macros em tempo real com gráficos e exportação/importação de dados para portabilidade entre dispositivos." },
+      "Paquete Office": { en: "Microsoft Office Suite", fr: "Suite Microsoft Office", pt: "Pacote Microsoft Office" },
+      "Trabajo": { en: "Selected Work", fr: "Réalisations", pt: "Trabalhos selecionados" },
+      "Proyectos reales construidos y publicados — bots, apps y webs.": { en: "Real projects built and published — bots, apps, and websites.", fr: "Projets réels développés et publiés — bots, applications et sites web.", pt: "Projetos reais desenvolvidos e publicados — bots, aplicações e websites." },
+      "Bot de Discord completo para un servidor temático de Minecraft. Incluye integración con IA, moderación avanzada, sistema de tickets, anti-abuso, gestión de roles y proceso watchdog para uptime 24/7. Vendido comercialmente a varios propietarios de servidores.": { en: "Full-featured Discord bot for a Minecraft-themed server. It includes AI integration, advanced moderation, a ticket system, anti-abuse protection, role management, and a watchdog process for 24/7 uptime. Commercially sold to several server owners.", fr: "Bot Discord complet pour un serveur sur le thème de Minecraft. Il inclut une intégration IA, une modération avancée, un système de tickets, une protection anti-abus, la gestion des rôles et un processus watchdog pour une disponibilité 24/7. Vendu commercialement à plusieurs propriétaires de serveurs.", pt: "Bot de Discord completo para um servidor temático de Minecraft. Inclui integração com IA, moderação avançada, sistema de tickets, proteção anti-abuso, gestão de cargos e processo watchdog para uptime 24/7. Vendido comercialmente a vários proprietários de servidores." },
+      "App de seguimiento nutricional en español. Incluye cálculo de BMR/TDEE, análisis de comidas con IA, seguimiento de macros en tiempo real con gráficas y exportación/importación de datos para portabilidad entre dispositivos.": { en: "Spanish-language nutrition tracking app. It includes BMR/TDEE calculation, AI-powered meal analysis, real-time macro tracking with charts, and data import/export for portability across devices.", fr: "Application de suivi nutritionnel en espagnol. Elle inclut le calcul BMR/TDEE, l'analyse des repas avec IA, le suivi des macros en temps réel avec graphiques et l'import/export des données pour une meilleure portabilité entre appareils.", pt: "Aplicação de acompanhamento nutricional em espanhol. Inclui cálculo de BMR/TDEE, análise de refeições com IA, acompanhamento de macros em tempo real com gráficos e importação/exportação de dados para portabilidade entre dispositivos." },
       "Analizador de Apuestas Deportivas": { en: "Sports Betting Analyzer", fr: "Analyseur de paris sportifs", pt: "Analisador de apostas desportivas" },
-      "Dashboard para analizar oportunidades de apuestas deportivas. Integra The Odds API y API-Football para datos en tiempo real, aplica modelos matemáticos para calcular apuestas de valor y visualiza cuotas y valor esperado con gráficas interactivas.": { en: "Dashboard for analyzing sports betting opportunities. It integrates The Odds API and API-Football for real-time data, applies mathematical models to calculate value bets and visualizes odds and expected value with interactive charts.", fr: "Dashboard pour analyser les opportunités de paris sportifs. Il intègre The Odds API et API-Football pour les données en temps réel, applique des modèles mathématiques pour calculer les paris de valeur et visualise les cotes et la valeur attendue avec des graphiques interactifs.", pt: "Dashboard para analisar oportunidades de apostas desportivas. Integra The Odds API e API-Football para dados em tempo real, aplica modelos matemáticos para calcular apostas de valor e visualiza odds e valor esperado com gráficos interativos." },
-      "Prototipo Mejora Página Web": { en: "Website Improvement Prototype", fr: "Prototype d'amélioration de page web", pt: "Protótipo de melhoria de página web" },
-      "Rediseño completo de una página web existente de un negocio local en Madrid. Propuesta de mejora visual y de conversión: nueva estructura, animaciones con GSAP, diseño mobile-first y flujo de contacto optimizado. Construido con HTML/CSS/JS puro, listo para Hostinger.": { en: "Complete redesign of an existing website for a local business in Madrid. Visual and conversion improvement proposal: new structure, GSAP animations, mobile-first design and optimized contact flow. Built with pure HTML/CSS/JS, ready for Hostinger.", fr: "Refonte complète d'un site web existant pour une entreprise locale à Madrid. Proposition d'amélioration visuelle et de conversion : nouvelle structure, animations avec GSAP, design mobile-first et parcours de contact optimisé. Construit en HTML/CSS/JS pur, prêt pour Hostinger.", pt: "Redesign completo de uma página web existente de um negócio local em Madrid. Proposta de melhoria visual e de conversão: nova estrutura, animações com GSAP, design mobile-first e fluxo de contacto otimizado. Construído com HTML/CSS/JS puro, pronto para Hostinger." },
-      "Estudios": { en: "Studies", fr: "Études", pt: "Estudos" },
-      "CFGM Sistemas Microinformáticos y Redes (SMR)": { en: "Intermediate Vocational Training in Microcomputer Systems and Networks (SMR)", fr: "Cycle de formation en Systèmes Microinformatiques et Réseaux (SMR)", pt: "Curso técnico em Sistemas Microinformáticos e Redes (SMR)" },
+      "Dashboard para analizar oportunidades de apuestas deportivas. Integra The Odds API y API-Football para datos en tiempo real, aplica modelos matemáticos para calcular apuestas de valor y visualiza cuotas y valor esperado con gráficas interactivas.": { en: "Dashboard for analyzing sports betting opportunities. It integrates The Odds API and API-Football for real-time data, applies mathematical models to identify value bets, and visualizes odds and expected value through interactive charts.", fr: "Dashboard pour analyser les opportunités de paris sportifs. Il intègre The Odds API et API-Football pour les données en temps réel, applique des modèles mathématiques pour identifier les paris à valeur et visualise les cotes ainsi que la valeur attendue avec des graphiques interactifs.", pt: "Dashboard para analisar oportunidades de apostas desportivas. Integra The Odds API e API-Football para dados em tempo real, aplica modelos matemáticos para identificar apostas de valor e visualiza odds e valor esperado com gráficos interativos." },
+      "Prototipo Mejora Página Web": { en: "Website Redesign Prototype", fr: "Prototype de refonte de site web", pt: "Protótipo de redesenho de website" },
+      "Rediseño completo de una página web existente de un negocio local en Madrid. Propuesta de mejora visual y de conversión: nueva estructura, animaciones con GSAP, diseño mobile-first y flujo de contacto optimizado. Construido con HTML/CSS/JS puro, listo para Hostinger.": { en: "Complete redesign of an existing website for a local business in Madrid. The proposal improves visual quality and conversion through a new structure, GSAP animations, a mobile-first layout, and an optimized contact flow. Built with pure HTML/CSS/JS and ready for Hostinger.", fr: "Refonte complète du site web existant d'une entreprise locale à Madrid. La proposition améliore l'identité visuelle et la conversion grâce à une nouvelle structure, des animations GSAP, un design mobile-first et un parcours de contact optimisé. Construit en HTML/CSS/JS pur et prêt pour Hostinger.", pt: "Redesenho completo de um website existente para um negócio local em Madrid. A proposta melhora a apresentação visual e a conversão através de uma nova estrutura, animações com GSAP, design mobile-first e um fluxo de contacto otimizado. Construído com HTML/CSS/JS puro e pronto para Hostinger." },
+      "Estudios": { en: "Education", fr: "Formation", pt: "Formação" },
+      "CFGM Sistemas Microinformáticos y Redes (SMR)": { en: "Vocational Training in Microcomputer Systems and Networks (SMR)", fr: "Formation professionnelle en systèmes microinformatiques et réseaux (SMR)", pt: "Formação profissional em Sistemas Microinformáticos e Redes (SMR)" },
       "FP Lumara — Madrid, España": { en: "FP Lumara — Madrid, Spain", fr: "FP Lumara — Madrid, Espagne", pt: "FP Lumara — Madrid, Espanha" },
-      "2025 – Actualidad": { en: "2025 – Present", fr: "2025 – Aujourd'hui", pt: "2025 – Atualidade" },
+      "2025 – Actualidad": { en: "2025 – Present", fr: "2025 – Aujourd'hui", pt: "2025 – Presente" },
       "Redes Cisco": { en: "Cisco Networking", fr: "Réseaux Cisco", pt: "Redes Cisco" },
       "VLANs y Enrutamiento": { en: "VLANs and Routing", fr: "VLANs et routage", pt: "VLANs e encaminhamento" },
       "Administración Linux": { en: "Linux Administration", fr: "Administration Linux", pt: "Administração Linux" },
-      "Mantenimiento Hardware": { en: "Hardware Maintenance", fr: "Maintenance hardware", pt: "Manutenção de hardware" },
-      "Seguridad Informática": { en: "Computer Security", fr: "Sécurité informatique", pt: "Segurança informática" },
-      "Prácticas FCT": { en: "FCT Internship", fr: "Stage FCT", pt: "Estágio FCT" },
+      "Mantenimiento Hardware": { en: "Hardware Maintenance", fr: "Maintenance matérielle", pt: "Manutenção de hardware" },
+      "Seguridad Informática": { en: "Cybersecurity", fr: "Cybersécurité", pt: "Cibersegurança" },
+      "Prácticas FCT": { en: "Work Placement (FCT)", fr: "Stage en entreprise (FCT)", pt: "Estágio profissional (FCT)" },
       "FP Lumara & Policía Municipal de Móstoles — Madrid": { en: "FP Lumara & Móstoles Municipal Police — Madrid", fr: "FP Lumara & Police municipale de Móstoles — Madrid", pt: "FP Lumara & Polícia Municipal de Móstoles — Madrid" },
-      "Soporte técnico real": { en: "Real technical support", fr: "Support technique réel", pt: "Suporte técnico real" },
-      "Configuración de equipos": { en: "Computer setup", fr: "Configuration d'équipements", pt: "Configuração de equipamentos" },
-      "Administración de sistemas": { en: "System administration", fr: "Administration de systèmes", pt: "Administração de sistemas" },
-      "Aprendizaje Autodidacta": { en: "Self-taught Learning", fr: "Apprentissage autodidacte", pt: "Aprendizagem autodidata" },
-      "Formación continua — 2022 – Actualidad": { en: "Continuous training — 2022 – Present", fr: "Formation continue — 2022 – Aujourd'hui", pt: "Formação contínua — 2022 – Atualidade" },
+      "Soporte técnico real": { en: "Hands-on technical support", fr: "Support technique sur le terrain", pt: "Suporte técnico em contexto real" },
+      "Configuración de equipos": { en: "Device configuration", fr: "Configuration de postes", pt: "Configuração de equipamentos" },
+      "Administración de sistemas": { en: "System administration", fr: "Administration systèmes", pt: "Administração de sistemas" },
+      "Aprendizaje Autodidacta": { en: "Self-directed Learning", fr: "Apprentissage autodidacte", pt: "Aprendizagem autodidata" },
+      "Formación continua — 2022 – Actualidad": { en: "Continuous learning — 2022 – Present", fr: "Formation continue — 2022 – Aujourd'hui", pt: "Formação contínua — 2022 – Presente" },
       "En curso": { en: "Ongoing", fr: "En cours", pt: "Em curso" },
       "IA y Prompt Engineering": { en: "AI and Prompt Engineering", fr: "IA et Prompt Engineering", pt: "IA e Prompt Engineering" },
       "Desarrollo Web Estático": { en: "Static Web Development", fr: "Développement web statique", pt: "Desenvolvimento web estático" },
-      "Hablemos": { en: "Let's talk", fr: "Discutons", pt: "Vamos falar" },
-      "Disponible para proyectos freelance — bots de Discord, desarrollo o rediseño web y automatizaciones con IA.": { en: "Available for freelance projects — Discord bots, web development or redesign and AI automations.", fr: "Disponible pour des projets freelance — bots Discord, développement ou refonte web et automatisations avec IA.", pt: "Disponível para projetos freelance — bots de Discord, desenvolvimento ou redesign web e automações com IA." },
+      "Hablemos": { en: "Let's talk", fr: "Parlons de votre projet", pt: "Vamos falar" },
+      "Disponible para proyectos freelance — bots de Discord, desarrollo o rediseño web y automatizaciones con IA.": { en: "Available for freelance projects — Discord bots, web development or redesign, and AI automation.", fr: "Disponible pour des projets freelance — bots Discord, développement ou refonte web et automatisations avec IA.", pt: "Disponível para projetos freelance — bots para Discord, desenvolvimento ou redesenho web e automações com IA." },
       "Disponible — Madrid o Remoto": { en: "Available — Madrid or Remote", fr: "Disponible — Madrid ou à distance", pt: "Disponível — Madrid ou remoto" },
       "© 2026 Diego. Todos los derechos reservados.": { en: "© 2026 Diego. All rights reserved.", fr: "© 2026 Diego. Tous droits réservés.", pt: "© 2026 Diego. Todos os direitos reservados." }
     };
@@ -1098,7 +1099,7 @@ footer {
       "Open menu": { es: "Abrir menú", en: "Open menu", fr: "Ouvrir le menu", pt: "Abrir menu" },
       "Seleccionar idioma": { es: "Seleccionar idioma", en: "Select language", fr: "Sélectionner la langue", pt: "Selecionar idioma" },
       "Código": { es: "Código", en: "Code", fr: "Code", pt: "Código" },
-      "Web visual": { es: "Web visual", en: "Live website", fr: "Site en ligne", pt: "Site visual" }
+      "Web visual": { es: "Web visual", en: "Live website", fr: "Site en ligne", pt: "Ver site" }
     };
 
     var textNodes = [];
@@ -1164,7 +1165,7 @@ footer {
         el.textContent = labels[lang].label;
       });
       document.querySelectorAll("[data-lang-current]").forEach(function (el) {
-        el.textContent = labels[lang].code;
+        el.textContent = labels[lang].name;
       });
       document.querySelectorAll("[data-lang-option]").forEach(function (el) {
         el.setAttribute("aria-pressed", el.getAttribute("data-lang-option") === lang ? "true" : "false");
